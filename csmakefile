@@ -122,5 +122,5 @@ signers=default-signature
 
 [command@]
 description=By default, csmake will test and package csmake-providers
-0000=csmake-providers, test, debian-csmake-providers & rpm-csmake-providers
+0000=csmake-providers, debian-csmake-providers & rpm-csmake-providers
 
