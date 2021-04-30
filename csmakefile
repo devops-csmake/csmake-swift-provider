@@ -39,11 +39,11 @@ version=1.0.0
 description=csmake provider for access to OpenStack swift.
 about=This is a provider that provides backend/artifact store functionalty
  to OpenStack swift.
-packager=Jeremiah Patterson <jerpat@hpe.com>
-manufacturer=Hewlett Packard Enterprise
+packager=Cardinal Peak Technologies
+manufacturer=Cardinal Peak Technologies
 depends=python (>= 2.6), python-swiftclient, csmake (>= 1.5.17)
 keywords=make build openstack swift artifact store development
-copyrights=csmake-copyright
+copyrights=csmake-copyright-cpt, csmake-copyright
 classifiers=
     Development Status :: 4 - Beta
     Intended Audience :: Developers
@@ -54,7 +54,7 @@ classifiers=
     License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 **files=
     <CsmakeModules (python:csmake-modules)> CsmakeModules/*.py
-    <CsmakeProviders (pythons:library)> CsmakeProviders/*.py
+    <CsmakeSwiftProvider (pythons:library)> CsmakeSwiftProvider/*.py
 
 [copyright@csmake-copyright]
 disclaimer=
@@ -76,6 +76,26 @@ license=GPLv3
 holder=Hewlett Packard Enterprise
 years=2014-2017
 
+[copyright@csmake-copyright-cpt]
+disclaimer=
+ This program is free software: you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation, either version 3 of the License, or (at your
+ option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+ Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian based systems see: /usr/share/common-licenses
+license=GPLv3
+holder=Cardinal Peak Technologies
+years=2021
+
 [versioning@snapshot-version]
 designation=snapshot
 format={datetime}.{gitSHA}
@@ -94,14 +114,14 @@ owner_root=root
 group_root=root
 
 map_CsmakeModules=
-   map: <CsmakeModules> -(1-1)-> {PYTHON}/CsmakeProviders/CsmakeModules/{~~file~~}}
+   map: <CsmakeModules> -(1-1)-> {PYTHON}/CsmakeSwiftProvider/CsmakeModules/[~~file~~]
    copyright: csmake-copyright
    owner:{root}
    group:{root}
    permissions:644
 
 map_CsmakeProviders=
-   map: <CsmakeProviders> -(1-1)-> {PYTHON}/CsmakeProviders/{~~file~~}}
+   map: <CsmakeSwiftProvider> -(1-1)-> {PYTHON}/CsmakeSwiftProvider/[~~file~~]
    copyright: csmake-copyright
    owner:{root}
    group:{root}
