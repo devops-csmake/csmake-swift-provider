@@ -64,7 +64,7 @@ class SwiftProvider:
     def ensureContainer(client, container):
         result = None
         try:
-            result = client.get_container(containerName)
+            result = client.get_container(container)
         except:
             result = {}
             client.put_container(container, result)

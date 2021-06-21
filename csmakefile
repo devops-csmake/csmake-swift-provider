@@ -1,4 +1,5 @@
 # <copyright>
+# (c) Copyright 2021 Cardinal Peak Technologies
 # (c) Copyright 2017 Hewlett Packard Enterprise Development LP
 #
 # This program is free software: you can redistribute it and/or modify it
@@ -35,13 +36,14 @@ rpm=python-inotify
 
 [metadata@csmake-providers]
 name=csmake-swift-provider
-version=1.0.0
+version=1.0.1
 description=csmake provider for access to OpenStack swift.
 about=This is a provider that provides backend/artifact store functionalty
  to OpenStack swift.
 packager=Cardinal Peak Technologies
 manufacturer=Cardinal Peak Technologies
-depends=python (>= 2.6), python-swiftclient, csmake (>= 1.5.17)
+#depends=python (>= 2.6), python-swiftclient, csmake (>= 1.5.17)
+depends=python (>= 2.6), csmake (>= 1.5.17)
 keywords=make build openstack swift artifact store development
 copyrights=csmake-copyright-cpt, csmake-copyright
 classifiers=
