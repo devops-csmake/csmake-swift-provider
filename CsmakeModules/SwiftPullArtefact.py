@@ -112,7 +112,7 @@ class SwiftPullArtefact(CsmakeModule):
                 innerself.reporttime = innerself.starttime
                 try:
                     client = SwiftProvider.getConnection(innerself.clientParams)
-                    with open(innerself.toFilename, 'w') as openFile:
+                    with open(innerself.toFilename, 'wb') as openFile:
                         SwiftProvider.doSwiftDownload(
                             client,
                             innerself.container,
@@ -182,7 +182,7 @@ class SwiftPullArtefact(CsmakeModule):
 
         threads = []
 
-        for filename, (data, _) in targetedObjects.iteritems():
+        for filename, (data, _) in targetedObjects.items():
             targetFile = os.path.join(
                 targetPath,
                 filename)
@@ -194,7 +194,7 @@ class SwiftPullArtefact(CsmakeModule):
 
                 #get the md5 for the local file if there is one
                 md5 = None
-                with open(targetFile) as openFile:
+                with open(targetFile, 'rb') as openFile:
                     md5 = self._fileMD5(openFile)
                 if md5 == eTag:
                     self.log.info("'%s' is already up-to-date, not redownloading", targetFile)
