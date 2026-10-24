@@ -36,7 +36,7 @@ def _pythonFiles():
 
 
 class TestCompiles(unittest.TestCase):
-    def testEveryPythonFileCompiles(self):
+    def test_compile_every_python_file(self):
         files = sorted(_pythonFiles())
         self.assertTrue(files, "no python files found under %s" % REPO)
         for path in files:

@@ -30,7 +30,7 @@ swiftsupport.setup()
 
 
 class TestImports(unittest.TestCase):
-    def testEveryPluginModuleImports(self):
+    def test_import_every_plugin_module(self):
         paths = sorted(glob.glob(
             os.path.join(swiftsupport.REPO, 'CsmakeModules', '*.py')))
         self.assertTrue(paths)
@@ -41,7 +41,7 @@ class TestImports(unittest.TestCase):
                 self.assertTrue(hasattr(module, name),
                                 "%s.py should define class %s" % (name, name))
 
-    def testSwiftProviderLibraryImports(self):
+    def test_import_swiftprovider_library(self):
         from CsmakeSwiftProvider.SwiftProvider import SwiftProvider
         self.assertTrue(callable(SwiftProvider.getContainerListing))
 
