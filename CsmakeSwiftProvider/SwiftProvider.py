@@ -141,7 +141,7 @@ class SwiftProvider:
                     targetedFilematches[matcher].append(objectdata)
 
         if latestOnly:
-            for key, value in targetedFilematches.iteritems():
+            for key, value in targetedFilematches.items():
                 if len(value) > 1:
                     sortedObjects = sorted(value, key=lambda k: k[timekey])
                     for removal in sortedObjects[:-1]:
@@ -186,7 +186,7 @@ class SwiftProvider:
         if type(origobjects) is dict:
             for myobject in removed:
                 actualkey = None
-                for key, value in origobjects.iteritems():
+                for key, value in origobjects.items():
                     if value is myobject:
                         actualkey = key
                         break
@@ -229,7 +229,7 @@ class SwiftProvider:
     @staticmethod
     def getMetadataFromContainerDict(swiftdict):
         results = {}
-        for key, value in swiftdict.iteritems():
+        for key, value in swiftdict.items():
             if key.startswith('x-container-meta'):
                 results[key] = value
         return results
@@ -237,7 +237,7 @@ class SwiftProvider:
     @staticmethod
     def getMetadataFromDict(swiftdict):
         result = {}
-        for key, value in swiftdict.iteritems():
+        for key, value in swiftdict.items():
             if key.startswith('x-object-meta'):
                 result[key] = value
         return result

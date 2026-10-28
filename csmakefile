@@ -42,17 +42,16 @@ about=This is a provider that provides backend/artifact store functionalty
  to OpenStack swift.
 packager=Cardinal Peak Technologies
 manufacturer=Cardinal Peak Technologies
-#depends=python (>= 2.6), python-swiftclient, csmake (>= 1.5.17)
-depends=python (>= 2.6), csmake (>= 1.5.17)
+#depends=python (>= 3.6), python-swiftclient, csmake (>= 1.5.17)
+depends=python (>= 3.6), csmake (>= 1.5.17)
 keywords=make build openstack swift artifact store development
 copyrights=csmake-copyright-cpt, csmake-copyright
 classifiers=
     Development Status :: 4 - Beta
     Intended Audience :: Developers
     Topic :: Software Development :: Build Tools
-    Programming Language :: Python :: 2
-    Programming Language :: Python :: 2.6
-    Programming Language :: Python :: 2.7
+    Programming Language :: Python :: 3
+    Programming Language :: Python :: 3 :: Only
     License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 **files=
     <CsmakeModules (python:csmake-modules)> CsmakeModules/*.py

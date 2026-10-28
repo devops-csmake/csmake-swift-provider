@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # </copyright>
-from Csmake.CsmakeModule import CsmakeModule
+from CsmakeCore.CsmakeModule import CsmakeModule
 from CsmakeSwiftProvider.SwiftProvider import SwiftProvider
 import fnmatch
 import time
@@ -60,7 +60,7 @@ class SwiftSoftLink(CsmakeModule):
 
     def __init__(self, env, log):
         CsmakeModule.__init__(self, env, log)
-	self.objects = []
+        self.objects = []
 
     def sources(self, options):
         self.pull(options)
@@ -98,7 +98,7 @@ class SwiftSoftLink(CsmakeModule):
 
         threads = []
 
-        for filename, (data, _) in targetedObjects.iteritems():
+        for filename, (data, _) in targetedObjects.items():
             self.objects.append((options['container'], filename))
 
             if not self._isNoop(options):

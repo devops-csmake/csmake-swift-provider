@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # </copyright>
-from Csmake.CsmakeModule import CsmakeModule
+from CsmakeCore.CsmakeModule import CsmakeModule
 from CsmakeSwiftProvider.SwiftProvider import SwiftProvider
 import fnmatch
 import swiftclient
@@ -52,7 +52,7 @@ class SwiftCleanupContainers(CsmakeModule):
             client,
             containerMatcher)
 
-        for ctrname, container in targetedContainers.iteritems():
+        for ctrname, container in targetedContainers.items():
             targetedObjects = SwiftProvider.getContainerListing(
                 client,
                 ctrname )
@@ -60,7 +60,7 @@ class SwiftCleanupContainers(CsmakeModule):
             self.log.debug("In Container: %s", ctrname)
             containerlen = len(targetedObjects)
             self.log.debug("Items in container to examine: %d", containerlen)
-            for objectName, objectShort in targetedObjects.iteritems():
+            for objectName, objectShort in targetedObjects.items():
                 objectDetails = client.head_object(ctrname, objectName)
                 if 'x-object-manifest' in objectDetails:
                     #Get the pointer(s) to the real object(s)

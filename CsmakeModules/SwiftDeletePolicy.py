@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # </copyright>
-from Csmake.CsmakeModule import CsmakeModule
+from CsmakeCore.CsmakeModule import CsmakeModule
 from CsmakeSwiftProvider.SwiftProvider import SwiftProvider
 import fnmatch
 import datetime
@@ -70,15 +70,15 @@ class SwiftDeletePolicy(CsmakeModule):
             client,
             containerMatcher)
 
-        for ctrname, container in targetedContainers.iteritems():
+        for ctrname, container in targetedContainers.items():
             targetedObjects = SwiftProvider.getContainerListing(
                 client,
                 ctrname,
                 objectMatcher,
                 details=True )
 
-            objectlist = targetedObjects.keys()
-            detaillist = targetedObjects.values()
+            objectlist = list(targetedObjects.keys())
+            detaillist = list(targetedObjects.values())
 
             if 'leave' in options:
                 leave = int(options['leave'])
@@ -99,7 +99,7 @@ class SwiftDeletePolicy(CsmakeModule):
                     objectlist.append(val[0]['name'])
                     detaillist.append(val)
 
-                leaveObjects = zip(leaveobjects, leavedetail)
+                leaveObjects = list(zip(leaveobjects, leavedetail))
                 for objectTarget, (details, filterer) in leaveObjects:
                     if 'x-delete-at' in details:
                         if details['x-delete-at'] == '9999999999':
@@ -114,7 +114,7 @@ class SwiftDeletePolicy(CsmakeModule):
                             headers=headers )
                         self.log.debug("%s/%s: Object preserved by policy", ctrname, objectTarget)
 
-            targetedObjects = zip(objectlist, detaillist)
+            targetedObjects = list(zip(objectlist, detaillist))
                
             self.log.devdebug("In Container: %s", ctrname)
 

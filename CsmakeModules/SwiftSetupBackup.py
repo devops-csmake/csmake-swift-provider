@@ -14,12 +14,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # </copyright>
-from Csmake.CsmakeModule import CsmakeModule
+from CsmakeCore.CsmakeModule import CsmakeModule
 from CsmakeSwiftProvider.SwiftProvider import SwiftProvider
 import os
 import datetime
 import time
-import urllib
+import urllib.parse
 
 class SwiftSetupBackup(CsmakeModule):
     """Library: csmake-swift-provider
@@ -70,7 +70,7 @@ class SwiftSetupBackup(CsmakeModule):
         self.log.devdebug("Container obtained: %s", str(mycontainer))
         SwiftProvider.addDetailsToAccountListing(client, [mycontainer])
         headers = SwiftProvider.getMetadataFromContainerDict(mycontainer[0])
-        headers['x-versions-location']=urllib.quote(options['backup']) 
+        headers['x-versions-location']=urllib.parse.quote(options['backup'])
         client.post_container(options['container'], headers)
 
         self.log.passed()
